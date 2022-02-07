@@ -1,8 +1,14 @@
 FROM ubuntu:20.04
-
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
-RUN apt-get install -y python3 python3-pip
+RUN apt-get install -y ca-certificates openssl
+RUN apt-get install -y golang-go
+RUN apt-get install -y git
 WORKDIR /opt/katana/
-COPY ./src/ .
-RUN pip3 install -r requirements.txt
-CMD ["/bin/bash", "-c", "python3 /opt/katana/app.py" ]
+COPY ./src/ ./src
+COPY ./go.mod .
+COPY ./go.sum .
+RUN go mod download
+RUN cd src
+RUN go build -o /katanad
+CMD ["/katanad"]

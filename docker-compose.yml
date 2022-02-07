@@ -1,0 +1,13 @@
+version: '3'
+services:
+  katanad:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: katanad-app
+    ports:
+      - 5050:5050
+
+networks:
+  default:
+    name: katanad
