@@ -8,7 +8,7 @@ import (
 	"net"
 	"os"
 
-	pb "github.com/sdslabs/katanad/src/proto"
+	pb "github.com/sdslabs/katanad/protobuf"
 
 	"google.golang.org/grpc"
 )

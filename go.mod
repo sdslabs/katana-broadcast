@@ -3,12 +3,10 @@ module github.com/sdslabs/katanad
 go 1.17
 
 require (
+	github.com/sdslabs/katanad/proto v0.0.0
 	google.golang.org/grpc v1.44.0
 	google.golang.org/protobuf v1.27.1
-	proto v0.0.0-unpublished
 )
-
-replace proto v0.0.0-unpublished => ./src/proto
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
@@ -18,3 +16,5 @@ require (
 	google.golang.org/genproto v0.0.0-20220204002441-d6cc3cc0770e // indirect
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.2.0 // indirect
 )
+
+replace github.com/sdslabs/katanad/protobuf v0.0.0 => ./protobuf
