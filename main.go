@@ -28,6 +28,7 @@ func (s *server) UploadFile(stream pb.FileUploadService_UploadFileServer) error 
 	}
 	fileName := req.GetFileInfo().GetFileName()
 	chalName := req.GetFileInfo().GetChalName()
+	log.Println(chalName)
 	log.Printf("Recieving file %s of challenge %s", fileName, chalName)
 	fileData := bytes.Buffer{}
 	fileSize := 0
